@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>side bar</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+       * {
+    margin: 0;
+    padding: 0;
+    font-family: "Madimi One", sans-serif;
+}
+
+.side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: rgb(18, 18, 27);
+    padding: 6px 14px;
+    transition: .5s;
+}
+.side-bar.active{
+    width: 250px;
+}
+
+.side-bar .logo-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+
+}
+
+.side-bar .logo-menu .logo {
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+.side-bar.active .logo-menu .logo{
+   opacity: 1;
+   transition-delay: .2s; 
+}
+
+.side-bar .logo-menu .toggle-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.side-bar.active .logo-menu .toggle-btn{
+    left: 90%;
+}
+
+.side-bar .list {
+    margin-top: 10px;
+}
+
+.list .list-item {
+    list-style: none;
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    line-height: 50px;
+}
+
+.list .list-item a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 6px;
+    transform: .5s;
+   
+}
+.side-bar .list-item a i{
+    min-width: 50px;
+    height: 50px;
+    text-align:  center;
+    line-height: 50px;
+}
+.list .list-item.active a, 
+.list .list-item a:hover{
+    background-color:rgba(255, 255 , 255, .2);
+}
+.side-bar .list-name{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ;
+
+}
+.side-bar.active .list-name{
+    opacity: 1;
+    pointer-events: auto;
+}
+@media screen and (min-device-width: 335px) and (max-device-width: 700px) { 
+    .side-bar {
+        width: 10%;
+        height: 8%;
+        background: rgb(18, 18, 27);
+        padding: 6px 14px;
+        transition: .5s;
+    }
+    .side-bar.active{
+        height: 100%;
+       
+    }
+    .side-bar .list-name{
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s ;
+    
+    }
+    .side-bar.active .list-name{
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+
+    </style>
+
+</head>
+
+<body>
+    <nav></nav>
+    <a href="">hello</a>
+    <nav class="side-bar">
+        <div class="logo-menu">
+            <h2 class="logo">logo</h2>
+            <i class="bx bx-menu toggle-btn"></i>
+
+        </div>
+        <ul class="list">
+
+            <li class="list-item">
+                <a href="#">
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="list-name"> Dashboard</span>
+                </a>
+            </li>
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-user"></i>
+                    <span class="list-name"></i>User</span></a>
+            </li>
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-chat"></i>
+                    <span class="list-name">Menssges</span></a>
+            </li>
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-pie-chart-alt-2"></i>
+                    <span class="list-name"></i>Analytics</span></a>
+            </li>
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-folder"></i>
+                    <span class="list-name">File Managers</span></a>
+            </li>
+
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-heart"></i>
+                    <span class="list-name">Other</span></a>
+            </li>
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-heart"></i>
+                    <span class="list-name">Saved</span></a>
+            </li>
+            <li class="list-item"><a href="#"><i class="bx bx1 bx-cog"></i>
+                    <span class="list-name">Setting</span></a>
+            </li>
+        </ul>
+    </nav>
+    <map name=""></map>
+    <script>
+        const sideBar = document.querySelector(".side-bar");
+        const toggleBtn = document.querySelector(".toggle-btn");
+        const logoMenu=document.querySelector(".logo-menu");
+        toggleBtn.addEventListener('click', () => {
+            sideBar.classList.toggle('active');
+            const logoMenu = toggleBtn.parentElement;
+
+            // if (sideBar.classList.contains('active')) {
+            //     console.log();
+            //     sideBar.firstElementChild.innerHTML=' <h2 class="logo">logo</h2><i class="bx bx-menu toggle-btn "></i>';
+
+            // } else {
+
+                
+            //     sideBar.firstElementChild.innerHTML=' <h2 class="logo">logo</h2><i class="bx bx-menu toggle-btn "></i>';
+            // }
+        })
+    </script>
+
+</body>
+
+</html>

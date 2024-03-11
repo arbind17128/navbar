@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tab Menu</title>
+<style>
+    /* Style for the tab menu */
+    .tab-menu {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    /* Style for each tab item */
+    .tab-item {
+        margin-right: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #007bff; /* Default background color */
+        color: #fff; /* Default text color */
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    /* Style for tab item when hovered */
+    .tab-item:hover {
+        background-color: #0056b3; /* Darker background color on hover */
+    }
+
+    /* Style for active tab item */
+    .tab-item.active {
+        background-color: #28a745; /* Green background color for active tab */
+    }
+</style>
+</head>
+<body>
+    <!-- Tab menu -->
+    <ul class="tab-menu">
+        <li class="tab-item active">Tab 1</li>
+        <li class="tab-item">Tab 2</li>
+        <li class="tab-item">Tab 3</li>
+    </ul>
+
+    <script>
+        // JavaScript to handle tab switching
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll('.tab-item');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove 'active' class from all tabs
+                    tabs.forEach(tab => tab.classList.remove('active'));
+                    // Add 'active' class to the clicked tab
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
